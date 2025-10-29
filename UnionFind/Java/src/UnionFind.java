@@ -18,7 +18,7 @@ public class UnionFind {
         return findRoot(x) == findRoot(y);
     }
 
-    public int length() {
+    public int size() {
         return father.length;
     }
 
