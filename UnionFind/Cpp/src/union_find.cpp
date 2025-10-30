@@ -1,7 +1,7 @@
 #include "union_find.h"
 
-UnionFind::UnionFind(usize size) noexcept: father(std::make_unique<usize[]>(size)), _size(size) {
-    for (usize i = 0; i < size; i++) {
+UnionFind::UnionFind(usize length) noexcept: father(std::make_unique<usize[]>(length)), length(length) {
+    for (usize i = 0; i < length; i++) {
         father[i] = i;
     }
 }
@@ -17,13 +17,13 @@ bool UnionFind::is_connected(usize x, usize y) noexcept {
 }
 
 UnionFind::usize UnionFind::size() const noexcept {
-    return _size;
+    return length;
 }
 
 UnionFind::usize UnionFind::num_blocks() noexcept {
-    auto visited = std::make_unique<bool[]>(_size);
+    auto visited = std::make_unique<bool[]>(length);
     usize res = 0;
-    for (usize i = 0; i < _size; i++) {
+    for (usize i = 0; i < length; i++) {
         usize root = find_root(i);
         if (!visited[root]) {
             res++;

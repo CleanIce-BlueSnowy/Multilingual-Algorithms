@@ -9,12 +9,12 @@ public:
 
 private:
     const std::unique_ptr<usize[]> father;
-    const usize _size;
+    const usize length;
 
     usize find_root(usize x) noexcept;
 
 public:
-    UnionFind(usize size) noexcept;
+    UnionFind(usize length) noexcept;
     void merge(usize x, usize y) noexcept;
     bool is_connected(usize x, usize y) noexcept;
     usize size() const noexcept;
